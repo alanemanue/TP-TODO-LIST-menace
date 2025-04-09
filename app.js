@@ -1,4 +1,4 @@
-// Clase para manejar las tareas
+
 class Task {
     constructor(id, text, completed = false, createdAt = new Date(), completedAt = null) {
         this.id = id;
@@ -19,7 +19,7 @@ class Task {
     }
 }
 
-// Clase para manejar la lista de tareas
+
 class TaskList {
     constructor() {
         this.tasks = this.loadTasks();
@@ -106,13 +106,13 @@ class TaskList {
     }
 }
 
-// Clase para manejar la interfaz de usuario
+
 class TaskUI {
     constructor() {
         this.taskList = new TaskList();
         this.currentFilter = 'all';
         
-        // Elementos del DOM
+       
         this.taskInput = document.getElementById('task-input');
         this.addTaskBtn = document.getElementById('add-task-btn');
         this.taskListEl = document.getElementById('task-list');
@@ -125,7 +125,7 @@ class TaskUI {
         this.fastestTaskEl = document.getElementById('fastest-task');
         this.themeToggleBtn = document.getElementById('theme-toggle');
         
-        // Event listeners
+        
         this.addTaskBtn.addEventListener('click', () => this.handleAddTask());
         this.taskInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.handleAddTask();
@@ -138,9 +138,9 @@ class TaskUI {
         this.clearCompletedBtn.addEventListener('click', () => this.handleClearCompleted());
         this.themeToggleBtn.addEventListener('click', () => this.toggleTheme());
         
-        // Cargar tema
+        
         this.loadTheme();
-        // Renderizar tareas iniciales
+        
         this.renderTasks();
         this.updateStats();
     }
@@ -179,7 +179,7 @@ class TaskUI {
     setFilter(filter) {
         this.currentFilter = filter;
         
-        // Actualizar botones activos
+        
         this.filterAllBtn.classList.remove('active');
         this.filterCompletedBtn.classList.remove('active');
         this.filterPendingBtn.classList.remove('active');
@@ -290,7 +290,7 @@ class TaskUI {
     }
 }
 
-// Inicializar la aplicación cuando el DOM esté listo
+
 document.addEventListener('DOMContentLoaded', () => {
     new TaskUI();
 });
